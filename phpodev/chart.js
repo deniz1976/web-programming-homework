@@ -1,7 +1,8 @@
 new Morris.Line({
-    
+    // ID of the element in which to draw the chart.
     element: 'myfirstchart',
-    
+    // Chart data records -- each entry in this array corresponds to a point on
+    // the chart.
     lineColors: ['orange'],
     data: [
         { year: '2019', value: 1.576 },
@@ -11,11 +12,12 @@ new Morris.Line({
         { year: '2023', value: 0.350 }
 
     ],
-    
+    // The name of the data record attribute that contains x-values.
     xkey: 'year',
-    
+    // A list of names of data record attributes that contain y-values.
     ykeys: ['value'],
-    
+    // Labels for the ykeys -- will be displayed when you hover over the
+    // chart.
     labels: ['Value']
 });
 Morris.Donut({
@@ -61,4 +63,37 @@ document.getElementById('cold').addEventListener('click', function () {
         localStorage.setItem('kitchenDegree', kitchenDegree);
     }
 });
+//Light part
+const wifiCheckbox = document.querySelector('#router input[type="checkbox"]');
+
+wifiCheckbox.addEventListener('change', function () {
+    localStorage.setItem('wifi', this.checked);
+});
+
+
+const savedWifiValue = localStorage.getItem('wifi');
+if (savedWifiValue !== null) {
+    wifiCheckbox.checked = savedWifiValue === 'true';
+}
+else {
+    savedWifiValue = false;
+}
+
+const lightCheckbox = document.querySelector('#light input[type="checkbox"]');
+
+lightCheckbox.addEventListener('change', function () {
+    localStorage.setItem('light', this.checked);
+});
+
+const savedLightValue = localStorage.getItem('light');
+if (savedLightValue !== null) {
+    lightCheckbox.checked = savedLightValue === 'true';
+}
+else {
+    savedLightValue = false;
+}
+
+
+
+
 
