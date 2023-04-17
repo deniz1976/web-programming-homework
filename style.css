@@ -1,0 +1,435 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+/* The switch - the box around the slider */
+/* Pagination links */
+.pagination a {
+    color: #fff;
+   padding-top: 10px;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    display:inline-block;
+  }
+  
+  /* Style the active/current link */
+  .pagination a.active {
+    background-color: orange;
+    color: white;
+  }
+  
+  /* Add a grey background color on mouse-over */
+  .pagination a:hover:not(.active) {background-color: #ddd;}
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    margin-top: 15px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: orange;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px orange;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+#hot{
+display: inline-block;
+outline: none;
+cursor: pointer;
+font-size: 16px;
+line-height: 20px;
+font-weight: 600;
+border-radius: 8px;
+padding: 14px 24px;
+border: 5px solid #131D28;
+transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
+background: linear-gradient(to right, #ffff 0%, #ffff 50%, #ffff 100%);
+color: orange;
+margin-left: 10px;
+
+} 
+#cold{
+display: inline-block;
+outline: none;
+cursor: pointer;
+font-size: 16px;
+line-height: 20px;
+font-weight: 600;
+border-radius: 8px;
+padding: 14px 24px;
+border: none;
+transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
+background: linear-gradient(to right, #ffff 0%, #ffff 50%, #ffff 100%);
+color: orange;
+margin-right: 10px;
+}
+
+.f{
+    display: flex;
+}
+.fe{
+    align-items: flex-end;
+}
+
+:root{
+    --main:orange;
+    --bg:#0B1218;
+    --bg-body:#131D28;
+
+
+}
+* {
+    font-family: 'Poppins',sans-serif;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    }
+    input,button{
+        outline:none ;
+    }
+
+    .sidebar{
+        height: 100%;
+        left: 0;
+        top: 0;
+        position: fixed;
+        background: var(--bg);
+        width: 250px; 
+        overflow-y: auto;
+        transition: width 300ms;
+        
+    }
+    #menu-toggle{
+        display:none;
+
+    }
+    #menu-toggle:checked .sidebar .brand h2{
+        display:none;
+        
+    }
+    #menu-toggle:checked .sidebar .side-img{
+        height: 50px;
+        width:50px ;
+        
+    } #menu-toggle:checked .sidebar .user{
+     display:none;
+
+        
+    }
+    #menu-toggle:checked .sidebar li a span:last-child{
+        height: 50px;
+        width:50px ;
+        
+    }
+    #menu-toggle:checked .main-content{
+       margin-left: 65px;
+        
+    }
+    #menu-toggle:checked .main-content header{
+        margin-left: 65px;
+         
+     }
+    #menu-toggle:checked .sidebar {
+        
+        width:65px ;
+        
+    }
+   
+    .brand{
+        padding: 0.5rem 2rem;
+        display: flex;
+        color: var(--main);
+        align-items: center;
+        height: 70px;
+    }
+
+    .brand span{
+        font-size: 1.8rem;
+        margin-right: .5rem;
+    }
+    .side-user{
+        margin: 2.5rem 0rem;
+
+    }
+    .side-img{
+        height:120px ;
+        width: 120px;
+        background-size: cover;
+        background-repeat:no-repeat ;
+        margin: auto;
+        border: 4px solid #3e454d;
+        border-radius: 50%;
+
+    }
+    .user{
+        text-align: center;
+        color: #fff;
+        margin-top: .5rem;
+        
+    }
+    .user small{
+        display: inline-block;
+        color: var(--main);
+    }
+    .sidemen{
+        padding: .5rem;
+        
+        
+    }
+    .sidemen li{
+        margin-bottom: 0.9rem;
+    }
+    .sidemen a{
+        color: #fff;
+        font-size:0.85rem;
+        display: flex;
+        align-items: center;
+        padding:0.4rem;
+    }
+    .sidemen a span:first-child{
+        font-size:1.3rem;
+        padding: 0rem 0.6rem;
+    }
+    .sidemen a.active{
+        background:var(--main);
+        color: #fff;
+        border-radius:  4px; 
+        height: 45px;
+    }
+    .main-content{
+       margin-left: 233px; 
+       min-height: 100vh;
+       background: var(--bg-body);
+       padding:.5rem;
+       transition: margin-left 300ms;
+    }
+    header{
+        height: 70px;
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        background: var(--bg);
+        padding: 0rem 1rem;
+
+        left:calc(233px+.5rem) ;
+        right: 0;
+        top: 0.5rem;
+        border-radius:3px ;
+        transition: left 300ms;
+       
+    }
+.menu-toggler{
+    height: 45px;
+    width: 45px;
+    background:var(--main);
+    color: #fff;
+    display: grid;
+    place-items: center;
+    border-radius: 5px;
+}
+
+.a{
+    font-size: 17px;
+    font-weight: 600 ;
+    color: #fff;
+    white-space: nowrap;
+ }
+ main{
+    top:calc(70px+.5rem);
+    padding: 1rem 0rem;
+    margin-left:30px;
+ }
+ .cards{
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 3rem;
+
+ }
+ .card{
+    background: var(--bg);
+    
+    padding: 2rem 1rem;
+    border-radius: 3px;
+ }
+ .head-icons span{
+    font: 5rem;
+    margin-left:1rem;
+    color: #fff;
+ }
+ .card-icon{
+    text-align: center;
+    display: grid;
+    place-items: center;
+ }
+ .card-icon span{
+    
+    color: #fff;
+    font-size: 8.4rem;
+    border-radius: 6px;
+    display: grid;
+    place-items: center;
+
+    
+ }
+ .follow span{
+    color: #ffbc01;
+    background:#fff8e5;
+ }
+ .likes span{
+    color: #ffbc01;
+    background:#fff8e5;
+ }
+ .comment span{
+    color: #ffbc01;
+    background:#fff8e5;
+ }
+
+.card-info{
+    text-align: center;
+    margin-top: .6rem;
+}
+.card-info h2{
+   font-size: 3rem;
+   color: #efefef;
+}
+.card-info small{
+    display: inline-block;
+    color: var(--main);
+    font-weight: 500;
+}
+.card-images{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.3rem;
+}
+.card-images div{
+    height: 30px;
+    width: 30px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    border: 2px solid #efefef;
+    position: relative;
+   margin-left: -10px;
+
+
+}
+.card-images div:first-child{
+    margin-left: 0;
+}
+.chart-grid{
+    display: grid;
+    grid-template-columns: 64% auto;
+    margin-top: 3rem;
+    grid-gap: 2rem;
+    
+}
+.chart-watt{
+    background: var(--bg);
+    padding:1rem;
+    border-radius: 3px;
+}
+.chart-use{
+    background: var(--bg);
+    padding:1rem;
+    border-radius: 3px;
+ 
+}
+.chart-head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #efefef;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #222;
+    margin-bottom: 1rem;
+
+}
+@media only screen and(max-width:1124px){
+
+#menu-toggle{
+    display:none;
+
+}
+#menu-toggle .sidebar .brand h2{
+    display:block;
+    
+}
+#menu-toggle .sidebar .side-img{
+    height: 120px;
+    width: 120px;
+    
+} #menu-toggle .sidebar .user{
+ display:block;
+
+    
+}
+#menu-toggle .sidebar li a span:last-child{
+   display:inline-block;
+    
+}
+#menu-toggle .main-content{
+   margin-left: 65px;
+    
+}
+#menu-toggle .main-content header{
+  left: calc(65px+1rem);
+     
+ }
+#menu-toggle .sidebar {
+    
+    width:65px ;
+    
+}
+}
