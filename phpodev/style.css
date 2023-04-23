@@ -94,7 +94,7 @@ input:checked+.slider:before {
     font-weight: 600;
     border-radius: 8px;
     padding: 14px 24px;
-    border: 5px solid #131D28;
+    border:none; 
     transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
     background: linear-gradient(to right, #ffff 0%, #ffff 50%, #ffff 100%);
     color: orange;
@@ -121,16 +121,16 @@ input:checked+.slider:before {
     display: inline-block;
     outline: none;
     cursor: pointer;
-    font-size: 6px;
+    font-size: 26px;
     line-height: 20px;
     font-weight: 1600;
     border-radius: 8px;
-    padding: 14px 24px;
+    padding: 20px 30px;
     border: none;
     transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
     background: linear-gradient(to right, orange 0%, orange 50%, orange 100%);
     color: #ffff;
-    margin-right: 10px;
+   
 }
 
 
