@@ -64,27 +64,29 @@
                 <a href="#kitchen" id="kitchen" class="active">Kitchen</a>
                 <a href="#bedroom" id="bedroom">Bedroom</a>
                 <a href="#" id="next">&raquo;</a>
-              </div>
-              <div>
+            </div>
+            <div>
                 <script>
                     // Get all the pagination links
                     const paginationLinks = document.querySelectorAll('.pagination a');
-                  
+
                     // Add a click event listener to each link
                     paginationLinks.forEach(link => {
-                      link.addEventListener('click', function(event) {
-                        // Prevent the default link behavior
-                        event.preventDefault();
-                  
-                        // Remove the active class from all links
-                        paginationLinks.forEach(link => link.classList.remove('active'));
-                  
-                        // Add the active class to the clicked link
-                        this.classList.add('active');
-                      });
-                    });
-                  </script>
-              </div>
+                        link.addEventListener('click', function (event) {
+                            // Prevent the default link behavior
+                            event.preventDefault();
+
+                            // Remove the active class from all links
+                            paginationLinks.forEach(link => link.classList.remove('active'));
+
+                            // Add the active class to the clicked link
+                            this.classList.add('active');
+                            current = this.id;
+                            getCurrent();
+                        });
+                    });
+                </script>
+            </div>
             <main>
                 <div class="cards">
                     <div class="card">
@@ -109,14 +111,27 @@
                             <span class="las la-thermometer-three-quarters"></span>
                         </div>
                         <div class="card-info">
-                            <h2 id="kitchenDegree">
-                                <script>localStorage.getItem("kitchenDegree")</script>
+                            <h2 id="degree">
+                                <script>
+                                    let myCurrent = localStorage.getItem("current");
+                                    if (myCurrent == 'kitchen') {
+                                        localStorage.getItem('kitchenDegree')
+                                    }
+                                    else if (myCurrent == 'living') {
+                                        localStorage.getItem("livingDegree")
+                                    }
+                                    else if (myCurrent == 'bedroom') {
+                                        localStorage.getItem("bedroomDegree")
+                                    }
+                                </script>
+
                             </h2>
                             <button id="cold">-</button>
-                            <label class="switch" id="router">
+                            <label class="switch" id="air">
                                 <input type="checkbox">
                                 <span class="slider round"></span>
                             </label>
+
                             <button id="hot">+</button>
                         </div>
 
@@ -129,7 +144,20 @@
                         </div>
                         <div class="card-info">
                             <h2>Router</h2>
-                            <small></small>
+                            <small>
+                                <script>
+
+                                    if (myCurrent == 'kitchen') {
+                                        localStorage.getItem('kitchenWifi')
+                                    }
+                                    else if (myCurrent == 'living') {
+                                        localStorage.getItem("livingWifi")
+                                    }
+                                    else if (myCurrent == 'bedroom') {
+                                        localStorage.getItem("bedroomWifi")
+                                    }
+                                </script>
+                            </small>
                             <label class="switch" id="router">
                                 <input type="checkbox">
                                 <span class="slider round"></span>
@@ -161,7 +189,6 @@
             </main>
 
     </div>
-    <label class="close-mobile-menu" for="menu-toggle"></label>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
