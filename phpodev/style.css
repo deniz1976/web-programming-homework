@@ -121,7 +121,7 @@ input:checked+.slider:before {
     display: inline-block;
     outline: none;
     cursor: pointer;
-    font-size: 26px;
+    font-size: 6px;
     line-height: 20px;
     font-weight: 1600;
     border-radius: 8px;

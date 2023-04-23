@@ -57,15 +57,34 @@
             </div> -->
         </header>
         <section>
-            <!-- Category -->
-            <!-- <div class="category">
-                <ul>
-                    <li><a href="#!" class="active">Living Room</a></li>
-                    <li><a href="#!">Kitchen</a></li>
-                    <li><a href="#!">Dinning</a></li>
-                    <li><a href="#!">Weather</a></li>
-                </ul>
-            </div> -->
+            <!-- Category-->
+            <div class="pagination">
+                <a href="#" id="prev">&laquo;</a>
+                <a href="#living" id="living">Living Room</a>
+                <a href="#kitchen" id="kitchen" class="active">Kitchen</a>
+                <a href="#bedroom" id="bedroom">Bedroom</a>
+                <a href="#" id="next">&raquo;</a>
+              </div>
+              <div>
+                <script>
+                    // Get all the pagination links
+                    const paginationLinks = document.querySelectorAll('.pagination a');
+                  
+                    // Add a click event listener to each link
+                    paginationLinks.forEach(link => {
+                      link.addEventListener('click', function(event) {
+                        // Prevent the default link behavior
+                        event.preventDefault();
+                  
+                        // Remove the active class from all links
+                        paginationLinks.forEach(link => link.classList.remove('active'));
+                  
+                        // Add the active class to the clicked link
+                        this.classList.add('active');
+                      });
+                    });
+                  </script>
+              </div>
             <main>
                 <div class="cards">
                     <div class="card">
@@ -78,9 +97,9 @@
                                 <script>
                                     var light = localStorage.getItem("light");
                                     if (light == "true") {
-                                        document.write("on");
+                                        document.write("On");
                                     } else {
-                                        document.write("off");
+                                        document.write("Off");
                                     }
                                 </script>
                             </small>
@@ -117,9 +136,9 @@
                                 <script>
                                     var router = localStorage.getItem("wifi");
                                     if (router == "true") {
-                                        document.write("connected");
+                                        document.write("Connected");
                                     } else {
-                                        document.write("disconnected");
+                                        document.write("Disconnected");
                                     }
                                 </script>
                                 </script>

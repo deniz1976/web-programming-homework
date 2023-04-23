@@ -23,10 +23,10 @@ new Morris.Line({
 Morris.Donut({
     element: 'donut-example',
     data: [
-        { label: "Samsung TV", value: 31 },
-        { label: "Washing machine", value: 30 },
-        { label: "iMac", value: 20 },
-        { label: "iphone 13", value: 5 },
+        { label: "Samsung TV", value: 42 },
+        { label: "Washing machine", value: 28 },
+        { label: "iMac", value: 21 },
+        { label: "iphone 13", value: 6 },
         { label: "Fridge", value: 22 }
     ],
     labelColor: '#ffffff',
