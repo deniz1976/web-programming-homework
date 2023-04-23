@@ -32,67 +32,259 @@ Morris.Donut({
     labelColor: '#ffffff',
     colors: ['orange', '#0072f2', '#f42a26', '#87cefa', '#32cd32']
 });
+
+// function getRandomInt(max) {
+//     return Math.floor(Math.random() * max);
+// }
+
 //degree part
-let kitchenDegree = parseInt(localStorage.getItem('kitchenDegree')) || 25; // default değer 25
-document.getElementById('kitchenDegree').innerHTML = kitchenDegree + '°C';
+let kitchenDegree = parseInt(localStorage.getItem('kitchenDegree')) || 17;
+let livingDegree = parseInt(localStorage.getItem('livingDegree')) || 17;
+let bedroomDegree = parseInt(localStorage.getItem('bedroomDegree')) || 17;
+let kitchenDegreeB = parseInt(localStorage.getItem('kitchenDegreeB')) || 0;
+let livingDegreeB = parseInt(localStorage.getItem('livingDegreeB')) || 0;
+let bedroomDegreeB = parseInt(localStorage.getItem('bedroomDegreeB')) || 0;
+let kitchenWifi = parseInt(localStorage.getItem('kitchenWifi')) || 0;
+let livingWifi = parseInt(localStorage.getItem('livingWifi')) || 0;
+let bedroomWifi = parseInt(localStorage.getItem('bedroomWifi')) || 0;
+let kitchenLight = parseInt(localStorage.getItem('kitchenLight')) || 0;
+let livingLight = parseInt(localStorage.getItem('livingLight')) || 0;
+let bedroomLight = parseInt(localStorage.getItem('bedroomLight')) || 0;
+let savedLightValue;
+let savedWifiValue;
+let current = "kitchen";
+localStorage.setItem("current", current);
+
+getCurrent();
+
 
 
 document.getElementById('hot').addEventListener('click', function () {
-    if (kitchenDegree < 30) {
-        kitchenDegree++;
-        document.getElementById('kitchenDegree').innerHTML = kitchenDegree + '°C';
-        localStorage.setItem('kitchenDegree', kitchenDegree);
+    if (kitchenDegreeB == 1) {
+        if (current == "kitchen") {
+            if (kitchenDegree < 30) {
+                kitchenDegree++;
+                document.getElementById("degree").innerHTML = kitchenDegree + '°C';
+                localStorage.setItem('kitchenDegree', kitchenDegree);
+            }
+            else {
+                kitchenDegree = 30;
+                document.getElementById("degree").innerHTML = kitchenDegree + '°C';
+                localStorage.setItem('kitchenDegree', kitchenDegree);
+            }
+        }
     }
-    else {
-        kitchenDegree = 30;
-        document.getElementById('kitchenDegree').innerHTML = kitchenDegree + '°C';
-        localStorage.setItem('kitchenDegree', kitchenDegree);
+    if (livingDegreeB == 1) {
+        if (current == "living") {
+            if (livingDegree < 30) {
+                livingDegree++;
+                document.getElementById("degree").innerHTML = livingDegree + '°C';
+                localStorage.setItem('livingDegree', livingDegree);
+            }
+            else {
+                livingDegree = 30;
+                document.getElementById("degree").innerHTML = livingDegree + '°C';
+                localStorage.setItem('livingDegree', livingDegree);
+            }
+
+        }
     }
+    if (bedroomDegreeB == 1) {
+        if (current == "bedroom") {
+            if (bedroomDegree < 30) {
+                bedroomDegree++;
+                document.getElementById("degree").innerHTML = bedroomDegree + '°C';
+                localStorage.setItem('bedroomDegree', bedroomDegree);
+            }
+            else {
+                bedroomDegree = 30;
+                document.getElementById("degree").innerHTML = bedroomDegree + '°C';
+                localStorage.setItem('bedroomDegree', bedroomDegree);
+            }
+        }
+    }
+    getCurrent();
 });
 
 
 document.getElementById('cold').addEventListener('click', function () {
-    if (kitchenDegree > 17) {
-        kitchenDegree--;
-        document.getElementById('kitchenDegree').innerHTML = kitchenDegree + '°C';
-        localStorage.setItem('kitchenDegree', kitchenDegree);
+    if (kitchenDegreeB == 1) {
+        if (current == "kitchen") {
+            if (kitchenDegree > 17) {
+                kitchenDegree--;
+                document.getElementById("degree").innerHTML = kitchenDegree + '°C';
+                localStorage.setItem('kitchenDegree', kitchenDegree);
+            }
+            else {
+                kitchenDegree = 17;
+                document.getElementById("degree").innerHTML = kitchenDegree + '°C';
+                localStorage.setItem('kitchenDegree', kitchenDegree);
+            }
+        }
+    }
+    if (livingDegreeB == 1) {
+        if (current == "living") {
+            if (livingDegree > 17) {
+                livingDegree--;
+                document.getElementById("degree").innerHTML = livingDegree + '°C';
+                localStorage.setItem('livingDegree', livingDegree);
+            }
+            else {
+                livingDegree = 17;
+                document.getElementById("degree").innerHTML = livingDegree + '°C';
+                localStorage.setItem('livingDegree', livingDegree);
+            }
+        }
+    }
+    if (bedroomDegreeB == 1) {
+        if (current == "bedroom") {
+            if (bedroomDegree > 17) {
+                bedroomDegree--;
+                document.getElementById("degree").innerHTML = bedroomDegree + '°C';
+                localStorage.setItem('bedroomDegree', bedroomDegree);
+            }
+            else {
+                bedroomDegree = 17;
+                document.getElementById("degree").innerHTML = bedroomDegree + '°C';
+                localStorage.setItem('bedroomDegree', bedroomDegree);
+
+            }
+        }
+    }
+    getCurrent();
+});
+
+function getCurrent() {
+    if (current == "kitchen") {
+        document.getElementById("degree").innerHTML = kitchenDegree + '°C';
+        savedWifiValue = kitchenWifi;
+        savedLightValue = kitchenLight;
+
+    }
+    else if (current == "living") {
+        document.getElementById("degree").innerHTML = livingDegree + '°C';
+        savedWifiValue = livingWifi;
+        savedLightValue = livingLight;
+
+    }
+    else if (current == "bedroom") {
+        document.getElementById("degree").innerHTML = bedroomDegree + '°C';
+        savedWifiValue = bedroomWifi;
+        savedLightValue = bedroomLight;
+
+
     }
     else {
-        kitchenDegree = 17;
-        document.getElementById('kitchenDegree').innerHTML = kitchenDegree + '°C';
-        localStorage.setItem('kitchenDegree', kitchenDegree);
+        document.getElementById("degree").innerHTML = kitchenDegree + '°C';
+        savedWifiValue = kitchenWifi;
+        savedLightValue = kitchenLight;
+
+
     }
-});
-//Light part
-const wifiCheckbox = document.querySelector('#router input[type="checkbox"]');
-
-wifiCheckbox.addEventListener('change', function () {
-    localStorage.setItem('wifi', this.checked);
-});
 
 
-const savedWifiValue = localStorage.getItem('wifi');
-if (savedWifiValue !== null) {
-    wifiCheckbox.checked = savedWifiValue === 'true';
+    const wifiCheckbox = document.querySelector('#router input[type="checkbox"]');
+    const airCheckbox = document.querySelector('#air input[type="checkbox"]');
+    const lightCheckbox = document.querySelector('#light input[type="checkbox"]');
+
+    // wifiCheckbox.addEventListener('change', function () {
+    //     localStorage.setItem('wifi', this.checked);
+    // });
+
+    // wifiCheckbox.addEventListener('change', function () {
+
+    //     if (current == "kitchen") {
+    //         kitchenWifi = this.checked;
+    //         localStorage.setItem('kitchenWifi', kitchenWifi);
+    //     }
+    //     else if (current == "living") {
+    //         livingWifi = this.checked;
+    //         localStorage.setItem('livingWifi', livingWifi);
+    //     }
+    //     else if (current == "bedroom") {
+    //         bedroomWifi = this.checked;
+    //         localStorage.setItem('bedroomWifi', bedroomWifi);
+    //     }
+    // });
+
+
+
+
+
+    if (savedWifiValue !== 0) {
+        wifiCheckbox.checked = savedWifiValue === 1;
+    }
+    else {
+        savedWifiValue = 0;
+    }
+
+
+
+    if (savedLightValue !== 0) {
+        lightCheckbox.checked = savedLightValue === 1;
+    }
+    else {
+        savedLightValue = 0;
+    }
+
+    lightCheckbox.addEventListener('change', function () {
+        if (current == "kitchen") {
+            kitchenLight = this.checked;
+            localStorage.setItem('kitchenLight', kitchenLight);
+        }
+        else if (current == "living") {
+            livingLight = this.checked;
+            localStorage.setItem('livingLight', livingLight);
+        }
+        else if (current == "bedroom") {
+            bedroomLight = this.checked;
+            localStorage.setItem('bedroomLight', bedroomLight);
+        }
+    });
+    wifiCheckbox.addEventListener('change', function () {
+        if (current == "kitchen") {
+            kitchenWifi = this.checked;
+            localStorage.setItem('kitchenWifi', kitchenWifi);
+        }
+        else if (current == "living") {
+            livingWifi = this.checked;
+            localStorage.setItem('livingWifi', livingWifi);
+        }
+        else if (current == "bedroom") {
+            bedroomWifi = this.checked;
+            localStorage.setItem('bedroomWifi', bedroomWifi);
+        }
+    });
+    airCheckbox.addEventListener('change', function () {
+        if (current == "kitchen") {
+            kitchenDegreeB = this.checked;
+            localStorage.setItem('kitchenDegreeB', kitchenDegreeB);
+        }
+        else if (current == "living") {
+            livingDegreeB = this.checked;
+            localStorage.setItem('livingDegreeB', livingDegreeB);
+        }
+        else if (current == "bedroom") {
+            bedroomDegreeB = this.checked;
+            localStorage.setItem('bedroomDegreeB', bedroomDegreeB);
+        }
+    });
 }
-else {
-    savedWifiValue = false;
-}
-
-const lightCheckbox = document.querySelector('#light input[type="checkbox"]');
-
-lightCheckbox.addEventListener('change', function () {
-    localStorage.setItem('light', this.checked);
-});
-
-const savedLightValue = localStorage.getItem('light');
-if (savedLightValue !== null) {
-    lightCheckbox.checked = savedLightValue === 'true';
-}
-else {
-    savedLightValue = false;
-}
-
+// lightCheckbox.addEventListener('change', function () {
+//     localStorage.setItem('livingLight', this.checked);
+//     if (savedWifiValue !== 0) {
+//         wifiCheckbox.checked = savedWifiValue === 1;
+//     }
+//     else {
+//         savedWifiValue = 0;
+//     }
+//     if (savedLightValue !== 0) {
+//         lightCheckbox.checked = savedLightValue === 1;
+//     }
+//     else {
+//         savedLightValue = 0;
+//     }
+// });
 
 
 
