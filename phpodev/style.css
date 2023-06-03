@@ -2,6 +2,8 @@
 
 /* The switch - the box around the slider */
 /* Pagination links */
+
+
 .pagination a {
     color: #fff;
     padding-top: 10px;
@@ -150,6 +152,7 @@ input:checked+.slider:before {
 
 }
 
+
 * {
     font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
@@ -170,51 +173,51 @@ button {
     top: 0;
     position: fixed;
     background: var(--bg);
-    width: 250px;
+    width: 240px;
     overflow-y: auto;
     transition: width 300ms;
 
 }
+
 
 #menu-toggle {
     display: none;
 
 }
 
-#menu-toggle:checked .sidebar .brand h2 {
+#menu-toggle:checked ~.sidebar .brand h2 {
     display: none;
 
 }
 
-#menu-toggle:checked .sidebar .side-img {
+#menu-toggle:checked ~.sidebar .side-img {
     height: 50px;
     width: 50px;
 
 }
 
-#menu-toggle:checked .sidebar .user {
+#menu-toggle:checked~.sidebar .user {
     display: none;
 
 
 }
 
-#menu-toggle:checked .sidebar li a span:last-child {
-    height: 50px;
-    width: 50px;
+#menu-toggle:checked ~ .sidebar li a span:last-child {
+    display: none;
 
 }
 
-#menu-toggle:checked .main-content {
+#menu-toggle:checked ~ .main-content {
     margin-left: 65px;
 
 }
 
-#menu-toggle:checked .main-content header {
+#menu-toggle:checked  ~.main-content header {
     margin-left: 65px;
 
 }
 
-#menu-toggle:checked .sidebar {
+#menu-toggle:checked ~ .sidebar {
 
     width: 65px;
 
@@ -234,7 +237,7 @@ button {
 }
 
 .side-user {
-    margin: 2.5rem 0rem;
+    margin: 1.8rem 0rem;
 
 }
 
@@ -263,6 +266,7 @@ button {
 
 .sidemen {
     padding: .5rem;
+   
 
 
 }
@@ -292,7 +296,7 @@ button {
 }
 
 .main-content {
-    margin-left: 233px;
+    margin-left: 240px;
     min-height: 100vh;
     background: var(--bg-body);
     padding: .5rem;
@@ -306,10 +310,9 @@ header {
     align-items: center;
     background: var(--bg);
     padding: 0rem 1rem;
-
-    left: calc(233px+.5rem);
-    right: 0;
-    top: 0.5rem;
+    left: calc(240px+.5rem);
+    right: 0.5rem;
+    top:0.5rem;
     border-radius: 3px;
     transition: left 300ms;
 
@@ -335,7 +338,8 @@ header {
 main {
     top: calc(70px+.5rem);
     padding: 1rem 0rem;
-    margin-left: 30px;
+    margin-left: 10px;
+    margin-right: 10px;;
 }
 
 .cards {

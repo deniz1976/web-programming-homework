@@ -30,7 +30,7 @@ Morris.Donut({
         { label: "Fridge", value: 22 }
     ],
     labelColor: '#ffffff',
-    colors: ['orange', '#0072f2', '#f42a26', '#87cefa', '#32cd32']
+    colors: ['#00A36C', '#274C77', 'orange', '#274C77', '#E6E6FA']
 });
 
 // function getRandomInt(max) {
