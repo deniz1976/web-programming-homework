@@ -13,7 +13,7 @@
 
 /* Style the active/current link */
 .pagination a.active {
-    background-color: orange;
+    background-color: #00A36C;
     color: white;
 }
 
@@ -63,11 +63,11 @@
 }
 
 input:checked+.slider {
-    background-color: orange;
+    background-color: #00A36C;
 }
 
 input:focus+.slider {
-    box-shadow: 0 0 1px orange;
+    box-shadow: 0 0 1px #00A36C;
 }
 
 input:checked+.slider:before {
@@ -97,7 +97,7 @@ input:checked+.slider:before {
     border:none; 
     transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
     background: linear-gradient(to right, #ffff 0%, #ffff 50%, #ffff 100%);
-    color: orange;
+    color: #00A36C;
     margin-left: 10px;
 
 }
@@ -114,7 +114,7 @@ input:checked+.slider:before {
     border: none;
     transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
     background: linear-gradient(to right, #ffff 0%, #ffff 50%, #ffff 100%);
-    color: orange;
+    color: #00A36C;
     margin-right: 10px;
 }
 #power {
@@ -128,7 +128,7 @@ input:checked+.slider:before {
     padding: 20px 30px;
     border: none;
     transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
-    background: linear-gradient(to right, orange 0%, orange 50%, orange 100%);
+    background: linear-gradient(to right, #00A36C 0%, #00A36C 50%, #00A36C 100%);
     color: #ffff;
    
 }
@@ -143,7 +143,7 @@ input:checked+.slider:before {
 }
 
 :root {
-    --main: orange;
+    --main: #00A36C;
     --bg: #0B1218;
     --bg-body: #131D28;
 
@@ -376,17 +376,17 @@ main {
 }
 
 .follow span {
-    color: #ffbc01;
+    color: #00A36C;
     background: #fff8e5;
 }
 
 .likes span {
-    color: #ffbc01;
+    color: #00A36C;
     background: #fff8e5;
 }
 
 .comment span {
-    color: #ffbc01;
+    color: #00A36C;
     background: #fff8e5;
 }
 

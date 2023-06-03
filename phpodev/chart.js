@@ -3,7 +3,7 @@ new Morris.Line({
     element: 'myfirstchart',
     // Chart data records -- each entry in this array corresponds to a point on
     // the chart.
-    lineColors: ['orange'],
+    lineColors: ['#00A36C'],
     data: [
         { year: '2019', value: 1.576 },
         { year: '2020', value: 1.500 },
