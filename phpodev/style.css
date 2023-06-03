@@ -213,7 +213,7 @@ button {
 }
 
 #menu-toggle:checked  ~.main-content header {
-    margin-left: 65px;
+    left:calc(65px+1rem);
 
 }
 
