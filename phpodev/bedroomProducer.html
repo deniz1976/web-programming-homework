@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1,maximum-scale=1,initial-scale=1">
+    <title>Home automation system</title>
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+   
+</head>
+
+<body>
+    <input type="checkbox" id="menu-toggle">
+    <div class="sidebar">
+        <div class="brand">
+            <span class="lab la-affiliatetheme"></span>
+            <h2>Homesphere</h2>
+
+        </div>
+
+        <div class="sidemen">
+            <div class="side-user">
+                <div class="side-img" style="background-image: url(blank.png);"> </div>
+                <div class="user">
+                    <small>Producer</small>
+                    <p>Berkay Cefakar</p>
+                </div>
+            </div>
+            <ul>
+                <li><a href="producerApp.html" class="active">
+                        <span class="las la-home"></span>
+                        <span>Home</span>
+                    </a>
+                </li>
+                 <li>
+                    <a href="kitchenProducer.html">
+                        <span class="las la-utensils"></span>
+                        <span>Kitchen</span>
+                    </a>
+                </li> 
+                <li>
+                    <a href="livingProducer.html">
+                        <span class="las la-tv"></span>
+                        <span>Living Room</span>
+                    </a>
+                </li> 
+                <li>
+                    <a href="bedroomProducer.html">
+                        <span class="las la-bed"></span>
+                        <span>Bedroom </span>
+                    </a>
+                </li> 
+            </ul>
+        </div>
+    </div>
+    <div class="main-content">
+        <header>
+            <label for="menu-toggle" class="menu-toggler">
+                <span class="las la-bars"></span>
+            </label>
+
+            
+        </header>
+        <section>
+            
+            <div>
+                <script>
+                    // Get all the pagination links
+                    const paginationLinks = document.querySelectorAll('.pagination a');
+
+                    // Add a click event listener to each link
+                    paginationLinks.forEach(link => {
+                        link.addEventListener('click', function (event) {
+                            // Prevent the default link behavior
+                            event.preventDefault();
+
+                            // Remove the active class from all links
+                            paginationLinks.forEach(link => link.classList.remove('active'));
+
+                            // Add the active class to the clicked link
+                            this.classList.add('active');
+                            current = this.id;
+                            getCurrent();
+                        });
+                    });
+                </script>
+            </div>
+            <main>
+                <div class="cards">
+                    <div class="card">
+                        <div class="card-icon follow">
+                            <span class="las la-lightbulb"></span>
+                        </div>
+                        <div class="card-info">
+                            <h2>Light</h2>
+                            <small></small>
+                            <label class="switch" id="light">
+                                <input type="checkbox" label="light">
+                                <span class="slider round"></span>
+                            </label>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="card">
+                        <div class="card-icon likes">
+                            <span class="las la-thermometer-three-quarters"></span>
+                        </div>
+                        <div class="card-info">
+                            <h2 id="degree">
+                                <script>
+                                    let myCurrent = localStorage.getItem("current");
+                                    if (myCurrent == 'kitchen') {
+                                        localStorage.getItem('kitchenDegree')
+                                    }
+                                    else if (myCurrent == 'living') {
+                                        localStorage.getItem("livingDegree")
+                                    }
+                                    else if (myCurrent == 'bedroom') {
+                                        localStorage.getItem("bedroomDegree")
+                                    }
+                                </script>
+
+                            </h2>
+                            <button id="cold">-</button>
+                            <label class="switch" id="air">
+                                <input type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
+
+                            <button id="hot">+</button>
+                        </div>
+
+                    </div>
+
+
+                    <div class="card">
+                        <div class="card-icon comment">
+                            <span class="las la-wifi"></span>
+                        </div>
+                        <div class="card-info">
+                            <h2>Router</h2>
+                            <small>
+                                <script>
+
+                                    if (myCurrent == 'kitchen') {
+                                        localStorage.getItem('kitchenWifi')
+                                    }
+                                    else if (myCurrent == 'living') {
+                                        localStorage.getItem("livingWifi")
+                                    }
+                                    else if (myCurrent == 'bedroom') {
+                                        localStorage.getItem("bedroomWifi")
+                                    }
+                                </script>
+                            </small>
+                            <label class="switch" id="router">
+                                <input type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon follow">
+                            <span class="las la-lightbulb"></span>
+                        </div>
+                        <div class="card-info">
+                            <h2>Light</h2>
+                            <small></small>
+                            <label class="switch" id="light">
+                                <input type="checkbox" label="light">
+                                <span class="slider round"></span>
+                            </label>
+
+                        </div>
+                        
+
+                </div>
+
+               
+
+            </main>
+
+    </div>
+   
+</body>
+
+</html>

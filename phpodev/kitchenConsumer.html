@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1,maximum-scale=1,initial-scale=1">
+    <title>Home automation system</title>
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+    <link rel="stylesheet" href="style.css">
+    <source src=chart.js>
+</head>
+
+<body>
+    <input type="checkbox" id="menu-toggle">
+    <div class="sidebar">
+        <div class="brand">
+            <span class="lab la-affiliatetheme"></span>
+            <h2>Homesphere</h2>
+
+        </div>
+
+        <div class="sidemen">
+            <div class="side-user">
+                <div class="side-img" style="background-image: url(blank.png);"> </div>
+                <div class="user">
+                    <small>Consumer</small>
+                    <p>Deniz Mutlu</p>
+                </div>
+            </div>
+            <ul>
+                <li><a href="consumerApp.html" class="active">
+                        <span class="las la-home"></span>
+                        <span>Home</span>
+                    </a>
+                </li>
+                 <li>
+                    <a href="kitchenConsumer.html">
+                        <span class="las la-utensils"></span>
+                        <span>Kitchen</span>
+                    </a>
+                </li> 
+                <li>
+                    <a href="livingConsumer.html">
+                        <span class="las la-tv"></span>
+                        <span>Living Room</span>
+                    </a>
+                </li> 
+                <li>
+                    <a href="bedroomConsumer.html">
+                        <span class="las la-bed"></span>
+                        <span>Bedroom </span>
+                    </a>
+                </li> 
+            </ul>
+        </div>
+    </div>
+    <div class="main-content">
+        <header>
+            <label for="menu-toggle" class="menu-toggler">
+                <span class="las la-bars"></span>
+            </label>
+        </header>
+        <section>
+           
+            <div>
+                <script>
+                    // Get all the pagination links
+                    const paginationLinks = document.querySelectorAll('.pagination a');
+
+                    // Add a click event listener to each link
+                    paginationLinks.forEach(link => {
+                        link.addEventListener('click', function (event) {
+                            // Prevent the default link behavior
+                            event.preventDefault();
+
+                            // Remove the active class from all links
+                            paginationLinks.forEach(link => link.classList.remove('active'));
+
+                            // Add the active class to the clicked link
+                            this.classList.add('active');
+                            current = this.id;
+                            getCurrent();
+                        });
+                    });
+                </script>
+            </div>
+            <main>
+                <div class="cards">
+                    <div class="card">
+                        <div class="card-icon follow">
+                            <span class="las la-lightbulb"></span>
+                        </div>
+                        <div class="card-info">
+                            <h2>Light</h2>
+                            <small>
+                                <script>
+                                    var light = localStorage.getItem("light");
+                                    if (light == "true") {
+                                        document.write("On");
+                                    } else {
+                                        document.write("Off");
+                                    }
+                                </script>
+                            </small>
+                            </script></small>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="card">
+                        <div class="card-icon likes">
+                            <span class="las la-thermometer-three-quarters"></span>
+                        </div>
+                        <div class="card-info">
+                            <h2 id="degree">
+                                <script>
+                                    let myDegree = localStorage.getItem("current");
+                                    if (myDegree == "living") {
+                                        localStorage.getItem("livingDegree");
+                                    }
+                                    else if (myDegree == "bedroom") {
+                                        localStorage.getItem("bedroomDegree");
+                                    }
+                                    else {
+                                        localStorage.getItem("kitchenDegree");
+                                    }
+                                </script>
+                            </h2>
+
+                            <small>Degree</small>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="card">
+                        <div class="card-icon comment">
+                            <span class="las la-wifi"></span>
+                        </div>
+                        <div class="card-info">
+                            <h2>Router</h2>
+                            <small>
+                                <script>
+                                    let router_ = localStorage.getItem("current");
+                                    if (router_ == "kitchen") {
+                                        if (localStorage.getItem("kitchenWifi") == 1) {
+                                            document.write("Connected");
+                                        } else {
+                                            document.write("Disconnected");
+                                        }
+                                    } else if (router_ == 'living') {
+                                        if (localStorage.getItem("livingWifi") == 1) {
+                                            document.write("Connected");
+                                        } else {
+                                            document.write("Disconnected");
+                                        }
+                                    } else {
+                                        if (localStorage.getItem("bedroomWifi") == 1) {
+                                            document.write("Connected");
+                                        } else {
+                                            document.write("Disconnected");
+                                        }
+                                    }
+
+                                </script>
+
+                            </small>
+
+
+                        </div>
+
+                    </div>
+                </div>
+
+                
+
+
+            </main>
+
+    </div>
+    
+
+</body>
+
+</html>
