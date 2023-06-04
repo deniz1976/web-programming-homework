@@ -79,7 +79,7 @@
                         <div class="card-info">
                             <h2>Light</h2>
                             <small></small>
-                            <label class="switch" id="light">
+                            <label class="switch" id="lobbyLight">
                                 <input type="checkbox" label="light">
                                 <span class="slider round"></span>
                             </label>
@@ -94,7 +94,7 @@
                             <span class="las la-thermometer-three-quarters"></span>
                         </div>
                         <div class="card-info">
-                            <h2 id="degree">
+                            <h2 id="lobbyDegree">
                                 <script>
                                     let myCurrent = localStorage.getItem("current");
                                     if (myCurrent == 'kitchen') {
@@ -109,13 +109,13 @@
                                 </script>
 
                             </h2>
-                            <button id="cold">-</button>
-                            <label class="switch" id="air">
+                            <button class="cold" id="lobbyCold">-</button>
+                            <label class="switch" id="lobbyAir">
                                 <input type="checkbox">
                                 <span class="slider round"></span>
                             </label>
-
-                            <button id="hot">+</button>
+    
+                            <button class="hot"id="lobbyHot">+</button>
                         </div>
 
                     </div>
@@ -141,7 +141,7 @@
                                     }
                                 </script>
                             </small>
-                            <label class="switch" id="router">
+                            <label class="switch" id="lobbyRouter">
                                 <input type="checkbox">
                                 <span class="slider round"></span>
                             </label>

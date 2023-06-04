@@ -87,7 +87,7 @@ input:checked+.slider:before {
     border-radius: 50%;
 }
 
-#hot {
+.hot {
     display: inline-block;
     outline: none;
     cursor: pointer;
@@ -104,7 +104,7 @@ input:checked+.slider:before {
 
 }
 
-#cold {
+.cold {
     display: inline-block;
     outline: none;
     cursor: pointer;
