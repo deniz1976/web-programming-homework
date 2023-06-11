@@ -9,10 +9,14 @@
     <link rel="stylesheet"
         href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link rel="stylesheet" href="style.css">
-    
+
+
 </head>
 
 <body>
+    <script>
+        localStorage.setItem("page", "7");
+    </script>
     <input type="checkbox" id="menu-toggle">
     <div class="sidebar">
         <div class="brand">
@@ -30,29 +34,29 @@
                 </div>
             </div>
             <ul>
-                <li><a href="consumerApp.html" class="active">
+                <li><a href="consumerApp.html">
                         <span class="las la-home"></span>
                         <span>Lobby</span>
                     </a>
                 </li>
-                 <li>
+                <li>
                     <a href="kitchenConsumer.html">
                         <span class="las la-utensils"></span>
                         <span>Kitchen</span>
                     </a>
-                </li> 
+                </li>
                 <li>
                     <a href="livingConsumer.html">
                         <span class="las la-tv"></span>
                         <span>Living Room</span>
                     </a>
-                </li> 
+                </li>
                 <li>
-                    <a href="bedroomConsumer.html">
+                    <a href="bedroomConsumer.html" class="active">
                         <span class="las la-bed"></span>
                         <span>Bedroom </span>
                     </a>
-                </li> 
+                </li>
             </ul>
         </div>
     </div>
@@ -63,27 +67,10 @@
             </label>
         </header>
         <section>
-           
+
             <div>
                 <script>
-                    // Get all the pagination links
-                    const paginationLinks = document.querySelectorAll('.pagination a');
 
-                    // Add a click event listener to each link
-                    paginationLinks.forEach(link => {
-                        link.addEventListener('click', function (event) {
-                            // Prevent the default link behavior
-                            event.preventDefault();
-
-                            // Remove the active class from all links
-                            paginationLinks.forEach(link => link.classList.remove('active'));
-
-                            // Add the active class to the clicked link
-                            this.classList.add('active');
-                            current = this.id;
-                            getCurrent();
-                        });
-                    });
                 </script>
             </div>
             <main>
@@ -96,11 +83,12 @@
                             <h2>Light</h2>
                             <small>
                                 <script>
-                                    var light = localStorage.getItem("light");
-                                    if (light == "true") {
-                                        document.write("On");
-                                    } else {
-                                        document.write("Off");
+                                    let bedroomLightHTML = document.getElementById("bedroomLight");
+                                    if (bedroomLightHTML == "1") {
+                                        document.writeln("On");
+                                    }
+                                    else {
+                                        document.writeln("Off");
                                     }
                                 </script>
                             </small>
@@ -118,16 +106,7 @@
                         <div class="card-info">
                             <h2 id="bedroomDegree">
                                 <script>
-                                    let myDegree = localStorage.getItem("current");
-                                    if (myDegree == "living") {
-                                        localStorage.getItem("livingDegree");
-                                    }
-                                    else if (myDegree == "bedroom") {
-                                        localStorage.getItem("bedroomDegree");
-                                    }
-                                    else {
-                                        localStorage.getItem("kitchenDegree");
-                                    }
+                                    document.writeln(localStorage.getItem("bedroomDegree") + "°C");
                                 </script>
                             </h2>
 
@@ -146,25 +125,12 @@
                             <h2>Router</h2>
                             <small>
                                 <script>
-                                    let router_ = localStorage.getItem("current");
-                                    if (router_ == "kitchen") {
-                                        if (localStorage.getItem("kitchenWifi") == 1) {
-                                            document.write("Connected");
-                                        } else {
-                                            document.write("Disconnected");
-                                        }
-                                    } else if (router_ == 'living') {
-                                        if (localStorage.getItem("livingWifi") == 1) {
-                                            document.write("Connected");
-                                        } else {
-                                            document.write("Disconnected");
-                                        }
-                                    } else {
-                                        if (localStorage.getItem("bedroomWifi") == 1) {
-                                            document.write("Connected");
-                                        } else {
-                                            document.write("Disconnected");
-                                        }
+                                    let bedroomWifiHTML = document.getElementById("bedroomWifi");
+                                    if (bedroomWifiHTML == "1") {
+                                        document.writeln("Connected");
+                                    }
+                                    else {
+                                        document.writeln("Disconnected");
                                     }
 
                                 </script>
@@ -183,7 +149,13 @@
                             <h2>Door</h2>
                             <small>
                                 <script>
-                                    
+                                    let bedroomDoorHTML = document.getElementById("bedroomDoor");
+                                    if (bedroomDoorHTML == "1") {
+                                        document.writeln("Open");
+                                    }
+                                    else {
+                                        document.writeln("Closed");
+                                    }
                                 </script>
                             </small>
                             </script></small>
@@ -199,7 +171,13 @@
                             <h2>Curtain</h2>
                             <small>
                                 <script>
-                                   
+                                    let bedroomCurtainHTML = document.getElementById("bedroomCurtain");
+                                    if (bedroomCurtainHTML == "1") {
+                                        document.writeln("Open");
+                                    }
+                                    else {
+                                        document.writeln("Closed");
+                                    }
                                 </script>
                             </small>
                             </script></small>
@@ -215,7 +193,7 @@
                             <h2>Speaker</h2>
                             <small>
                                 <script>
-                                   
+                                    document.write(localStorage.getItem("bedroomSpeaker") + "°C");
                                 </script>
                             </small>
                             </script></small>
@@ -225,14 +203,14 @@
                     </div>
                 </div>
 
-                
+
 
 
             </main>
 
     </div>
-    
 
+    <script src="chart.js"></script>
 </body>
 
 </html>
