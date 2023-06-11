@@ -5,8 +5,8 @@
 </head>
 <body>
 	<div class="header">
-		<h1>Welcome to home automation system</h1>
-		<h2>Please log in</h2>
+		<h1>Welcome to Home Automation System</h1>
+		<h2>Please Login</h2>
 	</div>
 
 	<form action="login.php" method="post">
@@ -35,11 +35,13 @@
 				if($password == $producerPasswords[0] && $username == $producers[0] || $password == $producerPasswords[1] && $username == $producers[1]){
 					echo "<script>localStorage.setItem('user', true)</script>";
 					echo "<script>window.location.href='producerApp.html'</script>";
+					
 					exit();
 				}
 				else if($password == $consumerPasswords[0] && $username == $consumers[0] || $password == $consumerPasswords[1] && $username == $consumers[1]){
 					echo "<script>localStorage.setItem('user', true)</script>";
 					echo "<script>window.location.href='consumerApp.html'</script>";
+					
 					exit();
 				}
 				else if($username == "" && $password == ""){
