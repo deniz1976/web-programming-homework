@@ -35,13 +35,13 @@
                 </div>
             </div>
             <ul>
-                <li><a href="producerApp.html" class="active">
+                <li id="lob"><a href="producerApp.html">
                         <span class="las la-home"></span>
                         <span>Lobby</span>
                     </a>
                 </li>
                 <li>
-                    <a href="kitchenProducer.html">
+                    <a href="kitchenProducer.html" class="active">
                         <span class="las la-utensils"></span>
                         <span>Kitchen</span>
                     </a>
@@ -58,7 +58,19 @@
                         <span>Bedroom </span>
                     </a>
                 </li>
+                <li>
+                    <a href="login.php" id="lob">
+                        <span class="las la-user-times"></span>
+                        <span>Log out </span>
+                        <script>
+                            document.getElementById("lob").addEventListener("click", function () {
+                                localStorage.setItem("user", "false");
+                            });
+                        </script>
+                    </a>
+                </li>
             </ul>
+
         </div>
     </div>
     <div class="main-content">
