@@ -83,7 +83,7 @@
                             <h2>Light</h2>
                             <small>
                                 <script>
-                                    let bedroomLightHTML = document.getElementById("bedroomLight");
+                                    let bedroomLightHTML = localStorage.getItem("bedroomLight");
                                     if (bedroomLightHTML == "1") {
                                         document.writeln("On");
                                     }
@@ -125,7 +125,7 @@
                             <h2>Router</h2>
                             <small>
                                 <script>
-                                    let bedroomWifiHTML = document.getElementById("bedroomWifi");
+                                    let bedroomWifiHTML = localStorage.getItem("bedroomWifi");
                                     if (bedroomWifiHTML == "1") {
                                         document.writeln("Connected");
                                     }
@@ -149,7 +149,7 @@
                             <h2>Door</h2>
                             <small>
                                 <script>
-                                    let bedroomDoorHTML = document.getElementById("bedroomDoor");
+                                    let bedroomDoorHTML = localStorage.getItem("bedroomDoor");
                                     if (bedroomDoorHTML == "1") {
                                         document.writeln("Open");
                                     }
@@ -171,7 +171,7 @@
                             <h2>Curtain</h2>
                             <small>
                                 <script>
-                                    let bedroomCurtainHTML = document.getElementById("bedroomCurtain");
+                                    let bedroomCurtainHTML = localStorage.getItem("bedroomCurtain");
                                     if (bedroomCurtainHTML == "1") {
                                         document.writeln("Open");
                                     }
