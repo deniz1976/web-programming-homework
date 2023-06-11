@@ -515,14 +515,6 @@ let bedroomLight = parseInt(localStorage.getItem('bedroomLight')) || 0;
 let lobbyLight = parseInt(localStorage.getItem('lobbyLight')) || 0;
 
 
-let lobbyDegreeElement = document.getElementById('LobbyDegree');
-let lobbyColdButton = document.getElementById('lobbyCold');
-let lobbyHotButton = document.getElementById('lobbyHot');
-
-let kitchenDegreeElement = document.getElementById('KitchenDegree');
-let kitchenColdButton = document.getElementById('kitchenCold');
-let kitchenHotButton = document.getElementById('kitchenHot');
-
 let livingDegreeElement = document.getElementById('LivingDegree');
 let livingColdButton = document.getElementById('livingCold');
 let livingHotButton = document.getElementById('livingHot');
@@ -575,9 +567,7 @@ let bedroomAirCheckbox = document.getElementById('bedroomAirCheckbox');
 
 
 if (page == "0" || page == "4") {
-
-
-
+    let lobbyDegreeElement = document.getElementById('LobbyDegree');
     new Morris.Line({
         // ID of the element in which to draw the chart.
         element: 'myfirstchart',
@@ -614,6 +604,10 @@ if (page == "0" || page == "4") {
         colors: ['#00A36C', '#274C77', 'orange', '#274C77', '#E6E6FA']
     });
     if (page == "0") {
+
+        let lobbyColdButton = document.getElementById('lobbyCold');
+        let lobbyHotButton = document.getElementById('lobbyHot');
+
         let lobbyAirCheckbox = document.getElementById('lobbyAirCheckbox');
         let lobbyRouterCheckbox = document.getElementById('lobbyRouterCheckbox');
         let lobbyLightCheckbox = document.getElementById('lobbyLightCheckbox');
@@ -656,6 +650,75 @@ if (page == "0" || page == "4") {
     }
 
 }
+
+if (page == "1" || page == "5") {
+    let kitchenDegreeElement = document.getElementById('KitchenDegree');
+    if (page == "1") {
+        let kitchenColdButton = document.getElementById('kitchenCold');
+        let kitchenHotButton = document.getElementById('kitchenHot');
+        let kitchenAirCheckbox = document.getElementById('kitchenAirCheckbox');
+        let kitchenRouterCheckbox = document.getElementById('kitchenRouterCheckbox');
+        let kitchenLightCheckbox = document.getElementById('kitchenLightCheckbox');
+        let kitchenDoorCheckbox = document.getElementById('kitchenDoorCheckbox');
+        let kitchenCurtainCheckbox = document.getElementById('kitchenCurtainCheckbox');
+        let kitchenBlenderCheckbox = document.getElementById('kitchenBlenderCheckbox');
+
+        kitchenAirCheckbox.addEventListener('change', function () {
+            kitchenAirBoolean = kitchenAirCheckbox.checked ? 1 : 0;
+            localStorage.setItem('kitchenDegreeB', kitchenAirBoolean);
+        });
+
+        kitchenLightCheckbox.addEventListener('change', function () {
+            kitchenLightBoolean = kitchenLightCheckbox.checked ? 1 : 0;
+            localStorage.setItem('kitchenLight', kitchenLightBoolean);
+        });
+
+        kitchenRouterCheckbox.addEventListener('change', function () {
+            kitchenWifiBoolean = kitchenRouterCheckbox.checked ? 1 : 0;
+            localStorage.setItem('kitchenWifi', kitchenWifiBoolean);
+        });
+
+        kitchenDoorCheckbox.addEventListener('change', function () {
+            kitchenDoorBoolean = kitchenDoorCheckbox.checked ? 1 : 0;
+            localStorage.setItem('kitchenDoor', kitchenDoorBoolean);
+        });
+
+        kitchenCurtainCheckbox.addEventListener('change', function () {
+            kitchenCurtainBoolean = kitchenCurtainCheckbox.checked ? 1 : 0;
+            localStorage.setItem('kitchenCurtain', kitchenCurtainBoolean);
+        });
+
+        kitchenBlenderCheckbox.addEventListener('change', function () {
+            kitchenBlenderBoolean = kitchenBlenderCheckbox.checked ? 1 : 0;
+            localStorage.setItem('kitchenBlender', kitchenBlenderBoolean);
+        });
+
+        kitchenCold.addEventListener('click', function () {
+            if (localStorage.getItem("kitchenDegreeB") == 1) {
+                if (kitchenDegree > 17) {
+                    kitchenDegree -= 1;
+                    document.getElementById("kitchenDegree").innerHTML = kitchenDegree + "°C";
+                    localStorage.setItem("kitchenDegree", kitchenDegree);
+                }
+            }
+        });
+
+        kitchenHot.addEventListener('click', function () {
+            if (localStorage.getItem("kitchenDegreeB") == 1) {
+                if (kitchenDegree < 30) {
+                    kitchenDegree += 1;
+                    document.getElementById("kitchenDegree").innerHTML = kitchenDegree + "°C";
+                    localStorage.setItem("kitchenDegree", kitchenDegree);
+                }
+            }
+        });
+
+
+
+    }
+
+}
+
 
 
 
