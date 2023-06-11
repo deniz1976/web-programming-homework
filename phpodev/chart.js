@@ -515,10 +515,6 @@ let bedroomLight = parseInt(localStorage.getItem('bedroomLight')) || 0;
 let lobbyLight = parseInt(localStorage.getItem('lobbyLight')) || 0;
 
 
-let livingDegreeElement = document.getElementById('LivingDegree');
-let livingColdButton = document.getElementById('livingCold');
-let livingHotButton = document.getElementById('livingHot');
-
 let bedroomDegreeElement = document.getElementById('BedroomDegree');
 let bedroomColdButton = document.getElementById('bedroomCold');
 let bedroomHotButton = document.getElementById('bedroomHot');
@@ -561,8 +557,6 @@ function updateBedroomTemperature() {
 }
 
 
-let kitchenAirCheckbox = document.getElementById('kitchenAirCheckbox');
-let livingAirCheckbox = document.getElementById('livingAirCheckbox');
 let bedroomAirCheckbox = document.getElementById('bedroomAirCheckbox');
 
 
@@ -719,7 +713,69 @@ if (page == "1" || page == "5") {
 
 }
 
+if (page == "2" || page == "6") {
+    let livingDegreeElement = document.getElementById('livingDegree');
+    if (page == "2") {
+        let livingColdButton = document.getElementById('livingCold');
+        let livingHotButton = document.getElementById('livingHot');
+        let livingAirCheckbox = document.getElementById('livingAirCheckbox');
+        let livingRouterCheckbox = document.getElementById('livingRouterCheckbox');
+        let livingLightCheckbox = document.getElementById('livingLightCheckbox');
+        let livingDoorCheckbox = document.getElementById('livingDoorCheckbox');
+        let livingCurtainCheckbox = document.getElementById('livingCurtainCheckbox');
+        let livingTVCheckbox = document.getElementById('livingTVCheckbox');
 
+        livingAirCheckbox.addEventListener('change', function () {
+            livingAirBoolean = livingAirCheckbox.checked ? 1 : 0;
+            localStorage.setItem('livingDegreeB', livingAirBoolean);
+        });
+
+        livingLightCheckbox.addEventListener('change', function () {
+            livingLightBoolean = livingLightCheckbox.checked ? 1 : 0;
+            localStorage.setItem('livingLight', livingLightBoolean);
+        });
+
+        livingRouterCheckbox.addEventListener('change', function () {
+            livingWifiBoolean = livingRouterCheckbox.checked ? 1 : 0;
+            localStorage.setItem('livingWifi', livingWifiBoolean);
+        });
+
+        livingDoorCheckbox.addEventListener('change', function () {
+            livingDoorBoolean = livingDoorCheckbox.checked ? 1 : 0;
+            localStorage.setItem('livingDoor', livingDoorBoolean);
+        });
+
+        livingCurtainCheckbox.addEventListener('change', function () {
+            livingCurtainBoolean = livingCurtainCheckbox.checked ? 1 : 0;
+            localStorage.setItem('livingCurtain', livingCurtainBoolean);
+        });
+
+        livingTVCheckbox.addEventListener('change', function () {
+            livingTVBoolean = livingTVCheckbox.checked ? 1 : 0;
+            localStorage.setItem('livingTV', livingTVBoolean);
+        });
+
+        livingCold.addEventListener('click', function () {
+            if (localStorage.getItem("livingDegreeB") == 1) {
+                if (livingDegree > 17) {
+                    livingDegree -= 1;
+                    document.getElementById("livingDegree").innerHTML = livingDegree + "°C";
+                    localStorage.setItem("livingDegree", livingDegree);
+                }
+            }
+        });
+
+        livingHot.addEventListener('click', function () {
+            if (localStorage.getItem("livingDegreeB") == 1) {
+                if (livingDegree < 30) {
+                    livingDegree += 1;
+                    document.getElementById("livingDegree").innerHTML = livingDegree + "°C";
+                    localStorage.setItem("livingDegree", livingDegree);
+                }
+            }
+        });
+    }
+}
 
 
 
