@@ -9,10 +9,15 @@
     <link rel="stylesheet"
         href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link rel="stylesheet" href="style.css">
-   
+
+
+
 </head>
 
 <body>
+    <script>
+        localStorage.setItem("page", "1");
+    </script>
     <input type="checkbox" id="menu-toggle">
     <div class="sidebar">
         <div class="brand">
@@ -35,24 +40,24 @@
                         <span>Lobby</span>
                     </a>
                 </li>
-                 <li>
+                <li>
                     <a href="kitchenProducer.html">
                         <span class="las la-utensils"></span>
                         <span>Kitchen</span>
                     </a>
-                </li> 
+                </li>
                 <li>
                     <a href="livingProducer.html">
                         <span class="las la-tv"></span>
                         <span>Living Room</span>
                     </a>
-                </li> 
+                </li>
                 <li>
                     <a href="bedroomProducer.html">
                         <span class="las la-bed"></span>
                         <span>Bedroom </span>
                     </a>
-                </li> 
+                </li>
             </ul>
         </div>
     </div>
@@ -62,12 +67,12 @@
                 <span class="las la-bars"></span>
             </label>
 
-            
+
         </header>
         <section>
-            
+
             <div>
-                
+
             </div>
             <main>
                 <div class="cards">
@@ -79,7 +84,7 @@
                             <h2>Light</h2>
                             <small></small>
                             <label class="switch" id="kitchenLight">
-                                <input type="checkbox" label="light">
+                                <input type="checkbox" id="kitchenLightCheckbox">
                                 <span class="slider round"></span>
                             </label>
 
@@ -95,27 +100,16 @@
                         <div class="card-info">
                             <h2 id="kitchenDegree">
                                 <script>
-                                    let myCurrent = localStorage.getItem("current");
-                                    if (myCurrent == 'kitchen') {
-                                        localStorage.getItem('kitchenDegree')
-                                    }
-                                    else if (myCurrent == 'living') {
-                                        localStorage.getItem("livingDegree")
-                                    }
-                                    else if (myCurrent == 'bedroom') {
-                                        localStorage.getItem("bedroomDegree")
-                                    }
+                                    document.writeln(localStorage.getItem("kitchenDegree") + "°C");
                                 </script>
-
                             </h2>
-                       
-                        <button class="cold" id="kitchenCold">-</button>
-                        <label class="switch" id="livingAir">
-                            <input type="checkbox">
-                            <span class="slider round"></span>
-                        </label>
+                            <button class="cold" id="kitchenCold">-</button>
+                            <label class="switch" id="kitchenAir">
+                                <input type="checkbox" id="kitchenAirCheckbox">
+                                <span class="slider round"></span>
+                            </label>
 
-                        <button class="hot"id="kitchenHot">+</button>
+                            <button class="hot" id="kitchenHot">+</button>
                         </div>
 
                     </div>
@@ -130,19 +124,11 @@
                             <small>
                                 <script>
 
-                                    if (myCurrent == 'kitchen') {
-                                        localStorage.getItem('kitchenWifi')
-                                    }
-                                    else if (myCurrent == 'living') {
-                                        localStorage.getItem("livingWifi")
-                                    }
-                                    else if (myCurrent == 'bedroom') {
-                                        localStorage.getItem("bedroomWifi")
-                                    }
+
                                 </script>
                             </small>
                             <label class="switch" id="kitchenRouter">
-                                <input type="checkbox">
+                                <input type="checkbox" id="kitchenRouterCheckbox">
                                 <span class="slider round"></span>
                             </label>
                         </div>
@@ -155,52 +141,52 @@
                             <h2>Door</h2>
                             <small></small>
                             <label class="switch" id="kitchenDoor">
-                                <input type="checkbox" label="door">
+                                <input type="checkbox" id="kitchenDoorCheckbox">
                                 <span class="slider round"></span>
                             </label>
 
                         </div>
-                        
 
-                </div>
-                <div class="card">
-                    <div class="card-icon follow">
-                        <span class="las la-archive"></span>
-                    </div>
-                    <div class="card-info">
-                        <h2>Curtain</h2>
-                        <small></small>
-                        <label class="switch" id="kitchenCurtain">
-                            <input type="checkbox" label="curtain">
-                            <span class="slider round"></span>
-                        </label>
 
                     </div>
+                    <div class="card">
+                        <div class="card-icon follow">
+                            <span class="las la-archive"></span>
+                        </div>
+                        <div class="card-info">
+                            <h2>Curtain</h2>
+                            <small></small>
+                            <label class="switch" id="kitchenCurtain">
+                                <input type="checkbox" id="kitchenCurtainCheckbox">
+                                <span class="slider round"></span>
+                            </label>
 
-                </div>
-                <div class="card">
-                    <div class="card-icon follow">
-                        <span class="las la-blender"></span>
+                        </div>
+
                     </div>
-                    <div class="card-info">
-                        <h2>Blender</h2>
-                        <small></small>
-                        <label class="switch" id="blender">
-                            <input type="checkbox" label="blender">
-                            <span class="slider round"></span>
-                        </label>
+                    <div class="card">
+                        <div class="card-icon follow">
+                            <span class="las la-blender"></span>
+                        </div>
+                        <div class="card-info">
+                            <h2>Blender</h2>
+                            <small></small>
+                            <label class="switch" id="blender">
+                                <input type="checkbox" id="kitchenBlenderCheckbox">
+                                <span class="slider round"></span>
+                            </label>
+
+                        </div>
 
                     </div>
 
-                </div>
 
 
-               
 
             </main>
 
     </div>
-   
+    <script src="chart.js"></script>
 </body>
 
 </html>
