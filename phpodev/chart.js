@@ -503,6 +503,7 @@ let kitchenDegreeB = parseInt(localStorage.getItem('kitchenDegreeB')) || 0;
 let livingDegreeB = parseInt(localStorage.getItem('livingDegreeB')) || 0;
 let bedroomDegreeB = parseInt(localStorage.getItem('bedroomDegreeB')) || 0;
 let lobbyDegreeB = parseInt(localStorage.getItem('lobbyDegreeB')) || 0;
+let bedroomSpeakerB = parseInt(localStorage.getItem('bedroomSpeakerB')) || 0;
 
 let kitchenWifi = parseInt(localStorage.getItem('kitchenWifi')) || 0;
 let livingWifi = parseInt(localStorage.getItem('livingWifi')) || 0;
@@ -514,10 +515,9 @@ let livingLight = parseInt(localStorage.getItem('livingLight')) || 0;
 let bedroomLight = parseInt(localStorage.getItem('bedroomLight')) || 0;
 let lobbyLight = parseInt(localStorage.getItem('lobbyLight')) || 0;
 
+let bedroomSpeaker = parseInt(localStorage.getItem('bedroomSpeaker')) || 0;
 
-let bedroomDegreeElement = document.getElementById('BedroomDegree');
-let bedroomColdButton = document.getElementById('bedroomCold');
-let bedroomHotButton = document.getElementById('bedroomHot');
+
 
 localStorage.setItem("lobbyDegree", lobbyDegree);
 localStorage.setItem("kitchenDegree", kitchenDegree);
@@ -536,8 +536,9 @@ localStorage.setItem("livingLight", livingLight);
 localStorage.setItem("bedroomLight", bedroomLight);
 localStorage.setItem("lobbyLight", lobbyLight);
 
+
 function updateLobbyTemperature() {
-    // lobbyDegreeElement.textContent = lobbyDegree;
+    lobbyDegreeElement.textContent = lobbyDegree;
     localStorage.setItem("lobbyDegree", lobbyDegree);
 }
 
@@ -557,7 +558,6 @@ function updateBedroomTemperature() {
 }
 
 
-let bedroomAirCheckbox = document.getElementById('bedroomAirCheckbox');
 
 
 if (page == "0" || page == "4") {
@@ -776,6 +776,93 @@ if (page == "2" || page == "6") {
         });
     }
 }
+
+if (page == "3" || page == "7") {
+    let bedroomDegreeElement = document.getElementById('bedroomDegree');
+    if (page == "3") {
+        let bedroomColdButton = document.getElementById('bedroomCold');
+        let bedroomHotButton = document.getElementById('bedroomHot');
+        let bedroomAirCheckbox = document.getElementById('bedroomAirCheckbox');
+        let bedroomRouterCheckbox = document.getElementById('bedroomRouterCheckbox');
+        let bedroomLightCheckbox = document.getElementById('bedroomLightCheckbox');
+        let bedroomDoorCheckbox = document.getElementById('bedroomDoorCheckbox');
+        let bedroomCurtainCheckbox = document.getElementById('bedroomCurtainCheckbox');
+        let bedroomSpeakerCheckbox = document.getElementById('bedroomSpeakerCheckbox');
+
+        bedroomAirCheckbox.addEventListener('change', function () {
+            bedroomAirBoolean = bedroomAirCheckbox.checked ? 1 : 0;
+            localStorage.setItem('bedroomDegreeB', bedroomAirBoolean);
+        });
+
+        bedroomLightCheckbox.addEventListener('change', function () {
+            bedroomLightBoolean = bedroomLightCheckbox.checked ? 1 : 0;
+            localStorage.setItem('bedroomLight', bedroomLightBoolean);
+        });
+
+        bedroomRouterCheckbox.addEventListener('change', function () {
+            bedroomWifiBoolean = bedroomRouterCheckbox.checked ? 1 : 0;
+            localStorage.setItem('bedroomWifi', bedroomWifiBoolean);
+        });
+
+        bedroomDoorCheckbox.addEventListener('change', function () {
+            bedroomDoorBoolean = bedroomDoorCheckbox.checked ? 1 : 0;
+            localStorage.setItem('bedroomDoor', bedroomDoorBoolean);
+        });
+
+        bedroomCurtainCheckbox.addEventListener('change', function () {
+            bedroomCurtainBoolean = bedroomCurtainCheckbox.checked ? 1 : 0;
+            localStorage.setItem('bedroomCurtain', bedroomCurtainBoolean);
+        });
+
+        bedroomSpeakerCheckbox.addEventListener('change', function () {
+            bedroomSpeakerBoolean = bedroomSpeakerCheckbox.checked ? 1 : 0;
+            localStorage.setItem('bedroomSpeakerB', bedroomSpeakerBoolean);
+        });
+
+        bedroomDown.addEventListener('click', function () {
+            if (localStorage.getItem("bedroomSpeakerB") == 1) {
+                if (bedroomSpeaker > 0) {
+                    bedroomSpeaker -= 5;
+                    document.getElementById("bedroomSpeaker").innerHTML = bedroomSpeaker + "%";
+                    localStorage.setItem("bedroomSpeaker", bedroomSpeaker);
+                }
+            }
+        });
+
+        bedroomUp.addEventListener('click', function () {
+            if (localStorage.getItem("bedroomSpeakerB") == 1) {
+                if (bedroomSpeaker < 100) {
+                    bedroomSpeaker += 5;
+                    document.getElementById("bedroomSpeaker").innerHTML = bedroomSpeaker + "%";
+                    localStorage.setItem("bedroomSpeaker", bedroomSpeaker);
+                }
+            }
+        });
+
+        bedroomCold.addEventListener('click', function () {
+            if (localStorage.getItem("bedroomDegreeB") == 1) {
+                if (bedroomDegree > 17) {
+                    bedroomDegree -= 1;
+                    document.getElementById("bedroomDegree").innerHTML = bedroomDegree + "°C";
+                    localStorage.setItem("bedroomDegree", bedroomDegree);
+                }
+            }
+        });
+
+        bedroomHot.addEventListener('click', function () {
+            if (localStorage.getItem("bedroomDegreeB") == 1) {
+                if (bedroomDegree < 30) {
+                    bedroomDegree += 1;
+                    document.getElementById("bedroomDegree").innerHTML = bedroomDegree + "°C";
+                    localStorage.setItem("bedroomDegree", bedroomDegree);
+                }
+            }
+        });
+
+
+    }
+}
+
 
 
 
