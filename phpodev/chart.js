@@ -1,3 +1,5 @@
+
+
 // // // new Morris.Line({
 // // //     // ID of the element in which to draw the chart.
 // // //     element: 'myfirstchart',
@@ -488,44 +490,9 @@
 //     });
 // });
 
-new Morris.Line({
-    // ID of the element in which to draw the chart.
-    element: 'myfirstchart',
-    // Chart data records -- each entry in this array corresponds to a point on
-    // the chart.
-    lineColors: ['#00A36C'],
-    data: [
-        { year: '2019', value: 1.576 },
-        { year: '2020', value: 1.500 },
-        { year: '2021', value: 2.000 },
-        { year: '2022', value: 1.500 },
-        { year: '2023', value: 0.350 }
-
-    ],
-    // The name of the data record attribute that contains x-values.
-    xkey: 'year',
-    // A list of names of data record attributes that contain y-values.
-    ykeys: ['value'],
-    // Labels for the ykeys -- will be displayed when you hover over the
-    // chart.
-    labels: ['Value']
-});
-Morris.Donut({
-    element: 'donut-example',
-    data: [
-        { label: "Samsung TV", value: 42 },
-        { label: "Washing machine", value: 28 },
-        { label: "iMac", value: 21 },
-        { label: "iphone 13", value: 6 },
-        { label: "Fridge", value: 22 }
-    ],
-    labelColor: '#ffffff',
-    colors: ['#00A36C', '#274C77', 'orange', '#274C77', '#E6E6FA']
-});
 
 
-
-
+let page = localStorage.getItem("page");
 
 let kitchenDegree = parseInt(localStorage.getItem('kitchenDegree')) || 17;
 let livingDegree = parseInt(localStorage.getItem('livingDegree')) || 17;
@@ -601,37 +568,99 @@ function updateBedroomTemperature() {
     localStorage.setItem("bedroomDegree", bedroomDegree);
 }
 
-let lobbyAirCheckbox = document.getElementById('lobbyAirCheckbox');
+
 let kitchenAirCheckbox = document.getElementById('kitchenAirCheckbox');
 let livingAirCheckbox = document.getElementById('livingAirCheckbox');
 let bedroomAirCheckbox = document.getElementById('bedroomAirCheckbox');
 
-lobbyAirCheckbox.addEventListener('change', function () {
-    lobbyAirBoolean = lobbyAirCheckbox.checked ? 1 : 0;
-    localStorage.setItem('lobbyDegreeB', lobbyAirBoolean);
-});
+
+if (page == "0" || page == "4") {
 
 
 
-lobbyCold.addEventListener('click', function () {
-    if (localStorage.getItem("lobbyDegreeB") == 1) {
-        if (lobbyDegree > 17) {
-            lobbyDegree -= 1;
-            document.getElementById("lobbyDegree").innerHTML = lobbyDegree + "°C";
-            localStorage.setItem("lobbyDegree", lobbyDegree);
-        }
+    new Morris.Line({
+        // ID of the element in which to draw the chart.
+        element: 'myfirstchart',
+        // Chart data records -- each entry in this array corresponds to a point on
+        // the chart.
+        lineColors: ['#00A36C'],
+        data: [
+            { year: '2019', value: 1.576 },
+            { year: '2020', value: 1.500 },
+            { year: '2021', value: 2.000 },
+            { year: '2022', value: 1.500 },
+            { year: '2023', value: 0.350 }
+
+        ],
+        // The name of the data record attribute that contains x-values.
+        xkey: 'year',
+        // A list of names of data record attributes that contain y-values.
+        ykeys: ['value'],
+        // Labels for the ykeys -- will be displayed when you hover over the
+        // chart.
+        labels: ['Value']
+    });
+
+    Morris.Donut({
+        element: 'donut-example',
+        data: [
+            { label: "Samsung TV", value: 42 },
+            { label: "Washing machine", value: 28 },
+            { label: "iMac", value: 21 },
+            { label: "iphone 13", value: 6 },
+            { label: "Fridge", value: 22 }
+        ],
+        labelColor: '#ffffff',
+        colors: ['#00A36C', '#274C77', 'orange', '#274C77', '#E6E6FA']
+    });
+    if (page == "0") {
+        let lobbyAirCheckbox = document.getElementById('lobbyAirCheckbox');
+        let lobbyRouterCheckbox = document.getElementById('lobbyRouterCheckbox');
+        let lobbyLightCheckbox = document.getElementById('lobbyLightCheckbox');
+
+        lobbyAirCheckbox.addEventListener('change', function () {
+            lobbyAirBoolean = lobbyAirCheckbox.checked ? 1 : 0;
+            localStorage.setItem('lobbyDegreeB', lobbyAirBoolean);
+        });
+
+        lobbyLightCheckbox.addEventListener('change', function () {
+            lobbyLightBoolean = lobbyLightCheckbox.checked ? 1 : 0;
+            localStorage.setItem('lobbyLight', lobbyLightBoolean);
+        });
+
+        lobbyRouterCheckbox.addEventListener('change', function () {
+            lobbyWifiBoolean = lobbyRouterCheckbox.checked ? 1 : 0;
+            localStorage.setItem('lobbyWifi', lobbyWifiBoolean);
+        });
+
+
+        lobbyCold.addEventListener('click', function () {
+            if (localStorage.getItem("lobbyDegreeB") == 1) {
+                if (lobbyDegree > 17) {
+                    lobbyDegree -= 1;
+                    document.getElementById("lobbyDegree").innerHTML = lobbyDegree + "°C";
+                    localStorage.setItem("lobbyDegree", lobbyDegree);
+                }
+            }
+        });
+
+        lobbyHot.addEventListener('click', function () {
+            if (localStorage.getItem("lobbyDegreeB") == 1) {
+                if (lobbyDegree < 30) {
+                    lobbyDegree += 1;
+                    document.getElementById("lobbyDegree").innerHTML = lobbyDegree + "°C";
+                    localStorage.setItem("lobbyDegree", lobbyDegree);
+                }
+            }
+        });
     }
-});
 
-lobbyHot.addEventListener('click', function () {
-    if (localStorage.getItem("lobbyDegreeB") == 1) {
-        if (lobbyDegree < 30) {
-            lobbyDegree += 1;
-            document.getElementById("lobbyDegree").innerHTML = lobbyDegree + "°C";
-            localStorage.setItem("lobbyDegree", lobbyDegree);
-        }
-    }
-});
+}
+
+
+
+
+
 
 
 // kitchenAirCheckbox.addEventListener('change', function () {
@@ -647,6 +676,14 @@ lobbyHot.addEventListener('click', function () {
 //     bedroomAirB = bedroomAirCheckbox.checked ? 1 : 0;
 //     localStorage.setItem('bedroomDegreeB', bedroomAirB);
 // });
+
+// let lobbyLightCheckbox = document.getElementById('lobbyLightCheckbox');
+
+// lobbyLightCheckbox.addEventListener('change', function () {
+//     lobbyLightBoolean = lobbyLightCheckbox.checked ? 1 : 0;
+//     localStorage.setItem('lobbyLight', lobbyLightBoolean);
+// });
+
 
 
 
