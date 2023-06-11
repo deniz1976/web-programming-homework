@@ -57,6 +57,17 @@
                         <span>Bedroom </span>
                     </a>
                 </li>
+                <li>
+                    <a href="login.php" id="lob">
+                        <span class="las la-user-times"></span>
+                        <span>Log out </span>
+                        <script>
+                            document.getElementById("lob").addEventListener("click", function () {
+                                localStorage.setItem("user", "false");
+                            });
+                        </script>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
